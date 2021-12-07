@@ -71,7 +71,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny', # Coma para que sea una tupla de un solo elemento
     ),
     'DEFAULT_AUTHENTICATION_CLASSES' : (
-        'rest_framework_simplejwt.athentication.JWTAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
 }
 
