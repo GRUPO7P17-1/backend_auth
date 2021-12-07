@@ -17,7 +17,7 @@ class UserDetailView(generics.RetrieveAPIView):
         token_backend = TokenBackend(algorithm = settings.SIMPLE_JWT['ALGORITHM']) # del archivo settings
         valid_data = token_backend.decode(token, verify = False)
 
-        if valid_data['user_id'] != kwargs['pk'] # 'user_id' en settings en la variable SIMPLE_JWT para validar que se peude hacer la consulta del mismo usuairo
+        if valid_data['user_id'] != kwargs['pk']: # user_id en settings en la variable SIMPLE_JWT para validar que se peude hacer la consulta del mismo usuairo
             StringResponse = {'detail' : 'Acceso no autorizado'}
             return Response(StringResponse, status = status.HTTP_401_UNAUTHORIZED)
         return super().get(request, *args, **kwargs)
