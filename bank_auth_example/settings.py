@@ -75,6 +75,7 @@ REST_FRAMEWORK = {
     )
 }
 
+AUTH_USER_MODEL = 'auth_example.User' # A dónde dirigirse para encontrar el modelo que está autenticando y comparar
 ROOT_URLCONF = 'bank_auth_example.urls'
 
 TEMPLATES = [
@@ -101,8 +102,12 @@ WSGI_APPLICATION = 'bank_auth_example.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE'   : 'django.db.backends.postgresql_psycopg2',
+        'NAME'     : 'auth_ms',
+        'USER'     : 'postgres',
+        'PASSWORD' : 'nicopostgres',
+        'HOST'     : 'localhost',
+        'PORT'     : '5432',
     }
 }
 
