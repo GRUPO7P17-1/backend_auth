@@ -12,3 +12,5 @@ urlpatterns = [
     path('user/', views.UserCreateView.as_view()),
     path('user/<int:pk>/', views.UserDetailView.as_view()),
 ]
+
+#Faltaría crear los endpoints para los métodos update y delete que se tienen en las vistas

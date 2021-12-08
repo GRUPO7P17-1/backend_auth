@@ -6,7 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bank_auth_example.settings_prod') # se agregó _prod para dirigirlo al archivo correcto
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bank_auth_example.settings_dev') # se agregó _dev para dirigirlo al archivo correcto
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

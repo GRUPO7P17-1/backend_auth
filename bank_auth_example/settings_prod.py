@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-o*(9+r9@3!kkdp+3$ki$hx7a1_5y52+qn@j5or61a9i#estcj@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-CORS_ALLOW_ALL_ORIGINS = True # Luego se agrega el listado de frontends desde donde se puede conectar al backend
+ALLOWED_HOSTS = ['localhost']
+# CORS_ALLOW_ALL_ORIGINS = True # Luego se agrega el listado de frontends desde donde se puede conectar al backend
 
 
 # Application definition
@@ -41,14 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'auth_example', #Se agrega la app creada desde GIT
     'rest_framework', # Agragada
-    'corsheaders', # Agragada
+    #'corsheaders', # Agragada, luego deshabilitada. Todo lo de cors se saca para microservicios
 ]
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15), # Reducir luego de las pruebas en postman
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1), # Los siguientes se dejan como en las guias
     'ROTATE_REFRESH_TOKENS': False,
-    'BLACKLIST_AFTER_ROTATION': True,
+    'BLACKLIST_AFTER_ROTATION': False, # En principio estaba en True para microservicios
     'UPDATE_LAST_LOGIN': False,
     'ALGORITHM': 'HS256',
     'USER_ID_FIELD': 'id',
@@ -63,7 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware', # Se agregó
+    #'corsheaders.middleware.CorsMiddleware', # Se agregó y luego se borra
 ]
 
 REST_FRAMEWORK = {
@@ -103,10 +103,10 @@ WSGI_APPLICATION = 'bank_auth_example.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'   : 'django.db.backends.postgresql_psycopg2',
-        'NAME'     : 'auth_ms',
-        'USER'     : 'postgres',
-        'PASSWORD' : 'nicopostgres',
-        'HOST'     : 'localhost',
+        'NAME'     : 'd22iboa5fquu5i',     # SOn las credenciales de la DB postgres instalada en la app en heroku
+        'USER'     : 'dnakrzksghjfpf',
+        'PASSWORD' : '87c60be95aae3d17ccd6021ed83b41a274dc51aba74c59380e991227f9df1639',
+        'HOST'     : 'ec2-3-211-228-251.compute-1.amazonaws.com',
         'PORT'     : '5432',
     }
 }
