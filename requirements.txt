@@ -4,8 +4,11 @@ djangorestframework-simplejwt==5.0.0
 #django-cors-headers==3.10.0
 psycopg2-binary==2.9.2
 PyJWT == 2.1.0
+gunicorn == 20.1.0 #Instalaciones para Docker
+django-heroku == 0.3.1
+
 
 #Primera configuración. Ver clase 8 de noviembre
 
-'''Se borró el modelo de cuenta porque Django se usa solo para autenticación con usuario. Se borra la importación de la cuenta en el init.
-Igual con el serializer'''
+#Se borró el modelo de cuenta porque Django se usa solo para autenticación con usuario. Se borra la importación de la cuenta en el init.
+#Igual con el serializer
